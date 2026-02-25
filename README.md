@@ -36,7 +36,7 @@ Session Management: Flask sessions for login authentication
 
 Installation and Setup
 Clone the repository:
-git clone https://github.com/YourUsername/Library-Management-AI.git
+git clone https://github.com/adithinayak16/Library-Management-AI.git
 
 Go to the project folder:
 cd Library-Management-AI
