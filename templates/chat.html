@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>🤖 AI Assistant</h1>
+
+<form method="POST" class="form-box">
+    <input type="text" name="question" placeholder="Ask about books..." required>
+    <button type="submit">Ask</button>
+</form>
+
+{% if response %}
+<div class="ai-response">
+    <pre>{{ response }}</pre>
+</div>
+{% endif %}
+
+{% endblock %}

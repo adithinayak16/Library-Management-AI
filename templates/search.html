@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>🔍 Search Books</h1>
+
+<form method="POST" class="form-box">
+    <input type="text" name="query" placeholder="Search by title" required>
+    <button type="submit">Search</button>
+</form>
+
+{% if books %}
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{ book[1] }}</td>
+        <td>{{ book[2] }}</td>
+        <td>{{ book[3] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

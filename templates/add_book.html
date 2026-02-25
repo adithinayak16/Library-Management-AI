@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>➕ Add New Book</h1>
+
+<form method="POST" class="form-box">
+
+<input type="text" name="title" placeholder="Book Title" required>
+
+<input type="text" name="author" placeholder="Author Name" required>
+
+<input type="text" name="category" placeholder="Category" required>
+
+<input type="text" name="year" placeholder="Year" required>
+
+<button type="submit">Add Book</button>
+
+</form>
+
+{% endblock %}

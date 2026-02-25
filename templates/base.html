@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Library System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">📚Library Management with AI</div>
+    <div class="nav-links">
+        {% if session.get('user') %}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/about">About</a>
+            <a href="/search">Search</a>
+            <a href="/add">Add Book</a>
+            <a href="/chat">AI Assistant</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/">Login</a>
+            <a href="/signup">Signup</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>📊 Dashboard</h1>
+
+<div class="stats">
+    <div class="card">
+        <h3>Total Books</h3>
+        <p>{{ total_books }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Available</h3>
+        <p>{{ available_books }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Borrowed</h3>
+        <p>{{ borrowed_books }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Latest Added</h3>
+        <p>{{ latest_book }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Users</h3>
+        <p>{{ total_users }}</p>
+    </div>
+</div>
+
+<h2>📖 All Books</h2>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for book in books %}
+    <tr>
+        <td>{{ book[1] }}</td>
+        <td>{{ book[2] }}</td>
+        <td>{{ book[3] }}</td>
+        <td>{{ book[5] }}</td>
+
+        <td class="actions">
+            <a href="/edit/{{ book[0] }}" class="edit-btn">Edit</a>
+            <a href="/delete/{{ book[0] }}" class="delete-btn">Delete</a>
+
+            {% if book[5] == "Available" %}
+            <a href="/borrow/{{ book[0] }}" class="borrow-btn">Borrow</a>
+            {% else %}
+            <a href="/return/{{ book[0] }}" class="return-btn">Return</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
